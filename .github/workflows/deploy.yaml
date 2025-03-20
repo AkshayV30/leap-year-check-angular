@@ -22,7 +22,7 @@ jobs:
         run: npm install
 
       - name: Build Angular app
-        run: npm run build -- --configuration production --base-href="https://github.com/AkshayV30/leap-year-check-angular/"
+        run: npm run build -- --configuration production --base-href="/leap-year-check-angular/"
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
@@ -30,3 +30,6 @@ jobs:
           branch: gh-pages
           folder: dist/leap-year-check-angular
           clean: true
+
+      - name: Create .nojekyll file
+        run: touch dist/leap-year-check-angular/.nojekyll
