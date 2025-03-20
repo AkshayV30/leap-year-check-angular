@@ -25,20 +25,18 @@ jobs:
         run: npm install
 
       - name: Build Angular app
-        run: npm run build -- --configuration production --base-href="/$(basename $GITHUB_REPOSITORY)/"
+        run: npm run build -- --configuration production --base-href="/${{ github.event.repository.name }}/"
 
       - name: Create .nojekyll file
-        run: touch dist/$(basename $GITHUB_REPOSITORY)/browser/.nojekyll
+        run: touch dist/${{ github.event.repository.name }}/browser/.nojekyll
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: dist/$(basename $GITHUB_REPOSITORY)/browser/
+          folder: dist/${{ github.event.repository.name }}/browser/
           clean: true
-          commit-message: "🚀 Deploy Angular app to GitHub Pages"
 
       - name: Output Deployment URL
         run: |
-          REPO_NAME=$(basename $GITHUB_REPOSITORY)
-          echo "✅ Successfully deployed! Access your site at: https://${{ github.repository_owner }}.github.io/$REPO_NAME/"
+          echo "✅ Successfully deployed! Access your site at: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
