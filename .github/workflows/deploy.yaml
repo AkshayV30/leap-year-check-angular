@@ -16,7 +16,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 18
 
       - name: Install dependencies
         run: npm install
@@ -24,12 +24,11 @@ jobs:
       - name: Build Angular app
         run: npm run build -- --configuration production --base-href="/leap-year-check-angular/"
 
+      - name: Create .nojekyll file
+        run: touch dist/leap-year-check-angular/.nojekyll
+
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
           folder: dist/leap-year-check-angular
-          clean: true
-
-      - name: Create .nojekyll file
-        run: touch dist/leap-year-check-angular/.nojekyll
