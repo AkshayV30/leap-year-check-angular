@@ -1,5 +1,7 @@
 # LeapYearCheckAngular
 
+[![Deploy Angular to GitHub Pages](https://github.com/AkshayV30/leap-year-check-angular/actions/workflows/deploy.yaml/badge.svg)](https://github.com/AkshayV30/leap-year-check-angular/actions/workflows/deploy.yaml)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.12.
 
 ## Development server
