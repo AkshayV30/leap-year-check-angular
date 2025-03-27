@@ -91,3 +91,14 @@ ng help
 ```
 
 ---
+
+const bun = [1,2,3,4]
+bun[100]=500
+console.log(bun)
+
+const a=[...'apple']
+console.log(a)
+
+console.log(parseInt('10+2'))
+console.log(parseInt('7FM'))
+console.log(parseInt('M7F'))

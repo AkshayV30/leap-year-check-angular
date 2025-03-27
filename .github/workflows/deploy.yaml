@@ -29,11 +29,11 @@ jobs:
         run: npm run build -- --configuration production --base-href="/${{ github.event.repository.name }}/"
 
       - name: Create .nojekyll file
-        run: touch dist/${{ github.event.repository.name }}/browser/.nojekyll
+        run: touch dist/browser/.nojekyll
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: dist/${{ github.event.repository.name }}/browser/
+          folder: dist/browser/
           clean: true
