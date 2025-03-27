@@ -26,7 +26,7 @@ jobs:
         run: npm install
 
       - name: Build Angular app
-        run: npm run build -- --configuration production --base-href="/${{ github.event.repository.name }}/"
+        run: npm run build -- --configuration production --base-href="/"
 
       - name: Create .nojekyll file
         run: touch dist/browser/.nojekyll
