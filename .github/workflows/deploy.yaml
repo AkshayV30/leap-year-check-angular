@@ -26,14 +26,14 @@ jobs:
         run: npm install
 
       - name: Build Angular app
-        run: npm run build -- --configuration production --base-href="/"
+        run: npm run build -- --configuration production --base-href="/${{ github.event.repository.name }}/"
 
       - name: Create .nojekyll file
-        run: touch dist/browser/.nojekyll
+        run: touch dist/browser/${{ github.event.repository.name }}/.nojekyll
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: dist/browser/
+          folder: dist/browser/${{ github.event.repository.name }}/
           clean: true
